@@ -1,0 +1,28 @@
+{
+  "name": "opendb",
+  "version": "0.0.1",
+  "description": "Open nosql service",
+  "main": "main.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmmanuelAmodu/openDB.git"
+  },
+  "keywords": [
+    "nosql",
+    "db",
+    "opendb"
+  ],
+  "author": "Emmanuel Amodu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmmanuelAmodu/openDB/issues"
+  },
+  "homepage": "https://github.com/EmmanuelAmodu/openDB#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^3.1.10"
+  }
+}
