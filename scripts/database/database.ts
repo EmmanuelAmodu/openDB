@@ -6,6 +6,12 @@ export class Database {
         
     }
     /**
+     * connect to the database
+     */
+    connect(){
+
+    }
+    /**
      * Open connection to the database
      */
     open(){
