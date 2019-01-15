@@ -1,37 +1,38 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var GetHandler_1 = require("../Services/GetHandler");
+var ReadHandler_1 = require("../Services/ReadHandler");
+var CreateHandler_1 = require("../Services/CreateHandler");
 exports.router = [
     {
         method: "get",
-        path: "/:collection",
+        path: "/api/read/:collection",
         handlerfunc: function (request, response) {
-            var getServ = new GetHandler_1.GetHandler(request.body);
-            response.send(getServ.result);
+            var getServ = new ReadHandler_1.ReadHandler(request, response);
+            getServ.runQuery();
         }
     },
     {
         method: "post",
-        path: "/:collection",
+        path: "/api/create/:collection",
         handlerfunc: function (request, response) {
-            var getServ = new GetHandler_1.GetHandler(request.body);
-            response.send(getServ.result);
+            var getServ = new CreateHandler_1.CreateHandler(request, response);
+            getServ.runQuery();
         }
     },
     {
         method: "put",
-        path: "/:collection",
+        path: "/api/:collection",
         handlerfunc: function (request, response) {
-            var getServ = new GetHandler_1.GetHandler(request.body);
-            response.send(getServ.result);
+            // const getServ = new ReadHandler(request);
+            // response.send(getServ.result);
         }
     },
     {
         method: "delete",
-        path: "/:collection",
+        path: "/api/:collection",
         handlerfunc: function (request, response) {
-            var getServ = new GetHandler_1.GetHandler(request.body);
-            response.send(getServ.result);
+            // const getServ = new ReadHandler(request);
+            // response.send(getServ.result);
         }
     }
 ];

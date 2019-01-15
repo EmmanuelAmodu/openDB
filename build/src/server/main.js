@@ -17,7 +17,7 @@ var ServerManager = /** @class */ (function () {
         this.multerU = multer();
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
-        this.express.use(this.validateUser);
+        this.express.use("/api", this.validateUser);
         this.routes.forEach(function (route) {
             _this.express[route.method](route.path, _this.multerU.array(), route.handlerfunc);
         });
@@ -37,7 +37,7 @@ var ServerManager = /** @class */ (function () {
     };
     ServerManager.prototype.start = function () {
         var _this = this;
-        this.express.listen(this.port, function () { return console.log("Example app listening on port " + _this.port + "!"); });
+        this.express.listen(this.port, function () { return console.log("Open app listening on port " + _this.port + "!"); });
     };
     return ServerManager;
 }());

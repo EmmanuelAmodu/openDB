@@ -1,4 +1,11 @@
+import * as mongodb from 'mongodb';
+
 export class Database {
+    private MongoClient = mongodb.MongoClient;
+    private dburl: string = 'mongodb://localhost:27017';
+    public dbName: string = 'myproject';
+    public client = new this.MongoClient(this.dburl, { useNewUrlParser: true });
+
     /**
      * Class for database operations
      */
@@ -9,29 +16,18 @@ export class Database {
      * connect to the database
      */
     connect(){
-
-    }
-    /**
-     * Open connection to the database
-     */
-    open(){
-
-    }
-    /**
-     * Close connection to the database
-     */
-    close() {
-
+        this.client.connect(err => {
+            console.log("Connected successfully to server");
+            const db = this.client.db(this.dbName);
+            this.query(db);
+        });
     }
 
-    /**
-     * truncate a document
-     */
-    trunc_doc() {
-
+    public close() {
+        this.client.close();
     }
 
-    create_doc(){
+    public query(db: mongodb.Db) {
 
     }
 }

@@ -14,30 +14,29 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var database_1 = require("../../database/database");
-var CreateHandler = /** @class */ (function (_super) {
-    __extends(CreateHandler, _super);
+var ReadHandler = /** @class */ (function (_super) {
+    __extends(ReadHandler, _super);
     /**
      * create handler handles all create operation it can be extened by other classes
      */
-    function CreateHandler(request, response) {
+    function ReadHandler(request, response) {
         var _this = _super.call(this) || this;
         _this.request = request;
         _this.response = response;
         _this.dbName = _this.request.params.collection;
         return _this;
     }
-    CreateHandler.prototype.query = function (db) {
+    ReadHandler.prototype.query = function (db) {
         var _this = this;
-        var collection = db.collection('documents');
-        collection.insertMany(this.request.body, function (err, result) {
-            err == null ? _this.result = result : _this.result = err;
-            _this.response.send(_this.result.result);
+        db.collection('documents').find({}).toArray(function (err, res) {
+            err == null ? _this.result = res : _this.result = err;
+            _this.response.send(_this.result);
             _this.close();
         });
     };
-    CreateHandler.prototype.runQuery = function () {
+    ReadHandler.prototype.runQuery = function () {
         this.connect();
     };
-    return CreateHandler;
+    return ReadHandler;
 }(database_1.Database));
-exports.CreateHandler = CreateHandler;
+exports.ReadHandler = ReadHandler;

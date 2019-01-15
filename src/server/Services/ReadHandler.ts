@@ -2,7 +2,7 @@ import { Database } from "../../database/database";
 import * as Express from 'express';
 import { Db } from "mongodb";
 
-export class CreateHandler extends Database {
+export class ReadHandler extends Database {
     public result: any;
     
     /**
@@ -14,10 +14,9 @@ export class CreateHandler extends Database {
     }
 
     public query(db: Db) {
-        const collection = db.collection('documents');
-        collection.insertMany(this.request.body, (err, result) => {
-            err == null ? this.result = result : this.result = err;
-            this.response.send(this.result.result);
+        db.collection('documents').find({}).toArray((err, res) => {
+            err == null ? this.result = res : this.result = err;
+            this.response.send(this.result);
             this.close();
         });
     }

@@ -6,7 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as multer from 'multer';
 
 export class ServerManager {
-    private port: number = 8900;
+    public port: number = 8900;
     private express = Express();
     private routes: IRoutes[] = router;
     private multerU = multer();
@@ -17,7 +17,7 @@ export class ServerManager {
     constructor() {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
-        this.express.use(this.validateUser);
+        this.express.use("/api", this.validateUser);
 
         this.routes.forEach(route => {
             this.express[route.method](route.path, this.multerU.array(), route.handlerfunc);
@@ -39,6 +39,6 @@ export class ServerManager {
     }
 
     public start() {
-        this.express.listen(this.port, () => console.log(`Example app listening on port ${this.port}!`));
+        this.express.listen(this.port, () => console.log(`Open app listening on port ${this.port}!`));
     }
 }
