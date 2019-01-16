@@ -24,7 +24,7 @@ exports.router = [
         path: "/api/:collection",
         handlerfunc: function (request, response) {
             // const getServ = new ReadHandler(request);
-            // response.send(getServ.result);
+            response.send({ "msg": "nothing implemented" });
         }
     },
     {
@@ -32,7 +32,7 @@ exports.router = [
         path: "/api/:collection",
         handlerfunc: function (request, response) {
             // const getServ = new ReadHandler(request);
-            // response.send(getServ.result);
+            response.send({ "msg": "nothing implemented" });
         }
     }
 ];

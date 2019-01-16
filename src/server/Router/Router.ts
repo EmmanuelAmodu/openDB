@@ -24,16 +24,14 @@ export const router: IRoutes[] = [
         method: "put",
         path: "/api/:collection",
         handlerfunc: function(request: Express.Request, response: Express.Response) {
-            // const getServ = new ReadHandler(request);
-            // response.send(getServ.result);
+            response.send({"msg":"nothing implemented"});
         }
     },
     {
         method: "delete",
         path: "/api/:collection",
         handlerfunc: function(request: Express.Request, response: Express.Response) {
-            // const getServ = new ReadHandler(request);
-            // response.send(getServ.result);
+            response.send({"msg":"nothing implemented"});
         }
     }
 ];

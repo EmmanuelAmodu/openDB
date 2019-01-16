@@ -9,9 +9,7 @@ export class Authenticator {
     }
 
     public isValid() {
-        
         let user = this.checkUser(this.Auth.username);
-        // console.log(user.username == this.Auth.username && user.password == this.Auth.password, user.username + " == " + this.Auth.username,  user.password + " == " + this.Auth.password);
         return user.username == this.Auth.username && user.password == this.Auth.password;
     }
 
