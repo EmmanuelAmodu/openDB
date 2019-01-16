@@ -10,7 +10,7 @@ export class CreateHandler extends Database {
      */
     constructor(private request: Express.Request, private response: Express.Response) {
         super();
-        this.dbName = this.request.params.collection;
+        this.dbName = this.request.params.database;
     }
 
     public query(db: Db) {

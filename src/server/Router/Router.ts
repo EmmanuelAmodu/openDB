@@ -6,7 +6,7 @@ import { CreateHandler } from "../Services/CreateHandler";
 export const router: IRoutes[] = [
     {
         method: "get",
-        path: "/api/read/:collection",
+        path: "/api/read/:database",
         handlerfunc: function(request: Express.Request, response: Express.Response) {
             const getServ = new ReadHandler(request, response);
             getServ.runQuery();
@@ -14,7 +14,7 @@ export const router: IRoutes[] = [
     },
     {
         method: "post",
-        path: "/api/create/:collection",
+        path: "/api/create/:database",
         handlerfunc: function(request: Express.Request, response: Express.Response) {
             const getServ = new CreateHandler(request, response);
             getServ.runQuery();
@@ -22,14 +22,14 @@ export const router: IRoutes[] = [
     },
     {
         method: "put",
-        path: "/api/:collection",
+        path: "/api/:database",
         handlerfunc: function(request: Express.Request, response: Express.Response) {
             response.send({"msg":"nothing implemented"});
         }
     },
     {
         method: "delete",
-        path: "/api/:collection",
+        path: "/api/:database",
         handlerfunc: function(request: Express.Request, response: Express.Response) {
             response.send({"msg":"nothing implemented"});
         }
