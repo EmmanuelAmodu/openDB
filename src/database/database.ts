@@ -1,6 +1,8 @@
 import * as mongodb from 'mongodb';
+import { Authenticator } from '../Authentication/Authenticate';
+import { IAuth } from '../Authentication/IAuth';
 
-export class Database {
+export class Database extends Authenticator {
     private MongoClient = mongodb.MongoClient;
     private dburl: string = 'mongodb://localhost:27017';
     public dbName: string = 'myproject';
@@ -9,15 +11,15 @@ export class Database {
     /**
      * Class for database operations
      */
-    constructor() {
-        
+    constructor(private authen: IAuth) {
+        super(authen);
     }
     /**
      * connect to the database
      */
     connect(){
         this.client.connect(err => {
-            console.log("Connected successfully to server");
+            console.log("Connected successfully to mongodb");
             const db = this.client.db(this.dbName);
             this.query(db);
         });

@@ -1,6 +1,11 @@
 import { Database } from "../../database/database";
 import * as Express from 'express';
 import { Db } from "mongodb";
+import { IAuth } from "../../Authentication/IAuth";
+
+function authenParam(auth: string): IAuth {
+    return null;
+}
 
 export class ReadHandler extends Database {
     public result: any;
@@ -9,7 +14,7 @@ export class ReadHandler extends Database {
      * create handler handles all create operation it can be extened by other classes
      */
     constructor(private request: Express.Request, private response: Express.Response) {
-        super();
+        super(authenParam(request.headers.authorization));
         this.dbName = this.request.params.database;
     }
 
@@ -24,4 +29,6 @@ export class ReadHandler extends Database {
     public runQuery() {
         this.connect();
     }
+
+
 }
