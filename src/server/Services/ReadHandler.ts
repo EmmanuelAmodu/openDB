@@ -1,15 +1,10 @@
 import { Database } from "../../database/database";
 import * as Express from 'express';
 import { Db } from "mongodb";
-import { IAuth } from "../../Authentication/IAuth";
-
-function authenParam(auth: string): IAuth {
-    return null;
-}
 
 export class ReadHandler extends Database {
     public result: any;
-    public arg: any;
+    public arg: any = {};
     
     /**
      * create handler handles all create operation it can be extened by other classes

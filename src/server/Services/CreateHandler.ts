@@ -1,11 +1,6 @@
 import { Database } from "../../database/database";
 import * as Express from 'express';
 import { Db } from "mongodb";
-import { IAuth } from "../../Authentication/IAuth";
-
-function authenParam(auth: string): IAuth {
-    return null;
-}
 
 export class CreateHandler extends Database {
     public result: any;
