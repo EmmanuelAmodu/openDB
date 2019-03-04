@@ -9,17 +9,19 @@ function authenParam(auth: string): IAuth {
 
 export class ReadHandler extends Database {
     public result: any;
+    public arg: any;
     
     /**
      * create handler handles all create operation it can be extened by other classes
      */
     constructor(private request: Express.Request, private response: Express.Response) {
-        super(authenParam(request.headers.authorization));
+        super();
         this.dbName = this.request.params.database;
+        this.arg = this.request.query;
     }
 
     public query(db: Db) {
-        db.collection('documents').find({}).toArray((err, res) => {
+        db.collection('documents').find(this.arg).toArray((err, res) => {
             err == null ? this.result = res : this.result = err;
             this.response.send(this.result);
             this.close();
@@ -29,6 +31,4 @@ export class ReadHandler extends Database {
     public runQuery() {
         this.connect();
     }
-
-
 }

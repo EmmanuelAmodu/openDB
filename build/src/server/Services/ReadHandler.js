@@ -14,6 +14,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var database_1 = require("../../database/database");
+function authenParam(auth) {
+    return null;
+}
 var ReadHandler = /** @class */ (function (_super) {
     __extends(ReadHandler, _super);
     /**
@@ -23,12 +26,13 @@ var ReadHandler = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.request = request;
         _this.response = response;
-        _this.dbName = _this.request.params.collection;
+        _this.dbName = _this.request.params.database;
+        _this.arg = _this.request.query;
         return _this;
     }
     ReadHandler.prototype.query = function (db) {
         var _this = this;
-        db.collection('documents').find({}).toArray(function (err, res) {
+        db.collection('documents').find(this.arg).toArray(function (err, res) {
             err == null ? _this.result = res : _this.result = err;
             _this.response.send(_this.result);
             _this.close();

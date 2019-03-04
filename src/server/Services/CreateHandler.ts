@@ -14,7 +14,7 @@ export class CreateHandler extends Database {
      * create handler handles all create operation it can be extened by other classes
      */
     constructor(private request: Express.Request, private response: Express.Response) {
-        super(authenParam(request.headers.authorization));
+        super();
         this.dbName = this.request.params.database;
     }
 

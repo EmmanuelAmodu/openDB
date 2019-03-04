@@ -5,7 +5,7 @@ var CreateHandler_1 = require("../Services/CreateHandler");
 exports.router = [
     {
         method: "get",
-        path: "/api/read/:collection",
+        path: "/api/read/:database",
         handlerfunc: function (request, response) {
             var getServ = new ReadHandler_1.ReadHandler(request, response);
             getServ.runQuery();
@@ -13,7 +13,7 @@ exports.router = [
     },
     {
         method: "post",
-        path: "/api/create/:collection",
+        path: "/api/create/:database",
         handlerfunc: function (request, response) {
             var getServ = new CreateHandler_1.CreateHandler(request, response);
             getServ.runQuery();
@@ -21,17 +21,15 @@ exports.router = [
     },
     {
         method: "put",
-        path: "/api/:collection",
+        path: "/api/:database",
         handlerfunc: function (request, response) {
-            // const getServ = new ReadHandler(request);
             response.send({ "msg": "nothing implemented" });
         }
     },
     {
         method: "delete",
-        path: "/api/:collection",
+        path: "/api/:database",
         handlerfunc: function (request, response) {
-            // const getServ = new ReadHandler(request);
             response.send({ "msg": "nothing implemented" });
         }
     }

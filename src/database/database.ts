@@ -1,8 +1,6 @@
 import * as mongodb from 'mongodb';
-import { Authenticator } from '../Authentication/Authenticate';
-import { IAuth } from '../Authentication/IAuth';
 
-export class Database extends Authenticator {
+export class Database  {
     private MongoClient = mongodb.MongoClient;
     private dburl: string = 'mongodb://localhost:27017';
     public dbName: string = 'myproject';
@@ -11,8 +9,8 @@ export class Database extends Authenticator {
     /**
      * Class for database operations
      */
-    constructor(private authen: IAuth) {
-        super(authen);
+    constructor() {
+
     }
     /**
      * connect to the database
