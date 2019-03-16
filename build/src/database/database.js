@@ -17,7 +17,6 @@ var Database = /** @class */ (function () {
     Database.prototype.connect = function () {
         var _this = this;
         this.client.connect(function (err) {
-            console.log("Connected successfully to mongodb");
             var db = _this.client.db(_this.dbName);
             _this.query(db);
         });

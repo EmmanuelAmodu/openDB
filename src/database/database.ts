@@ -17,7 +17,6 @@ export class Database  {
      */
     connect(){
         this.client.connect(err => {
-            console.log("Connected successfully to mongodb");
             const db = this.client.db(this.dbName);
             this.query(db);
         });

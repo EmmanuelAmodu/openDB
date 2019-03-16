@@ -14,9 +14,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var database_1 = require("../../database/database");
-function authenParam(auth) {
-    return null;
-}
 var CreateHandler = /** @class */ (function (_super) {
     __extends(CreateHandler, _super);
     /**
