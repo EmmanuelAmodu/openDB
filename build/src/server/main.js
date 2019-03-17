@@ -17,7 +17,7 @@ var ServerManager = /** @class */ (function () {
         this.multerU = multer();
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
-        this.express.use("/api", this.validateUser);
+        // this.express.use("/api", this.validateUser);
         this.routes.forEach(function (route) {
             _this.express[route.method](route.path, _this.multerU.array(), route.handlerfunc);
         });

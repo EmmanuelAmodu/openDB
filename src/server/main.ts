@@ -17,7 +17,7 @@ export class ServerManager {
     constructor() {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
-        this.express.use("/api", this.validateUser);
+        // this.express.use("/api", this.validateUser);
 
         this.routes.forEach(route => {
             this.express[route.method](route.path, this.multerU.array(), route.handlerfunc);

@@ -2,9 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ReadHandler_1 = require("../Services/ReadHandler");
 var CreateHandler_1 = require("../Services/CreateHandler");
+var DeleteHandler_1 = require("../Services/DeleteHandler");
 exports.router = [
     {
-        method: "get",
+        method: "post",
         path: "/api/read/:database",
         handlerfunc: function (request, response) {
             var getServ = new ReadHandler_1.ReadHandler(request, response);
@@ -20,17 +21,19 @@ exports.router = [
         }
     },
     {
-        method: "put",
-        path: "/api/:database",
+        method: "post",
+        path: "/api/update/:database",
         handlerfunc: function (request, response) {
-            response.send({ "msg": "nothing implemented" });
+            var getServ = new CreateHandler_1.CreateHandler(request, response);
+            getServ.runQuery();
         }
     },
     {
-        method: "delete",
-        path: "/api/:database",
+        method: "post",
+        path: "/api/delete/:database",
         handlerfunc: function (request, response) {
-            response.send({ "msg": "nothing implemented" });
+            var getServ = new DeleteHandler_1.DeleteHandler(request, response);
+            getServ.runQuery();
         }
     }
 ];

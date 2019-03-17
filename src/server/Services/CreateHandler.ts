@@ -15,6 +15,8 @@ export class CreateHandler extends Database {
 
     public query(db: Db) {
         const collection = db.collection('documents');
+        console.log(this.request.body);
+        if (this.request.body.constructor != Array) this.request.body = [this.request.body];
         collection.insertMany(this.request.body, (err, result) => {
             err == null ? this.result = result : this.result = err;
             this.response.send(this.result.result);

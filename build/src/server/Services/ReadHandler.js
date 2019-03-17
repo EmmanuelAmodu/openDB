@@ -25,11 +25,12 @@ var ReadHandler = /** @class */ (function (_super) {
         _this.response = response;
         _this.arg = {};
         _this.dbName = _this.request.params.database;
-        _this.arg = _this.request.query;
+        _this.arg = _this.request.body;
         return _this;
     }
     ReadHandler.prototype.query = function (db) {
         var _this = this;
+        console.log(this.arg);
         db.collection('documents').find(this.arg).toArray(function (err, res) {
             err == null ? _this.result = res : _this.result = err;
             _this.response.send(_this.result);

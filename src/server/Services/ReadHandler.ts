@@ -12,10 +12,11 @@ export class ReadHandler extends Database {
     constructor(private request: Express.Request, private response: Express.Response) {
         super();
         this.dbName = this.request.params.database;
-        this.arg = this.request.query;
+        this.arg = this.request.body;
     }
 
     public query(db: Db) {
+        console.log(this.arg);
         db.collection('documents').find(this.arg).toArray((err, res) => {
             err == null ? this.result = res : this.result = err;
             this.response.send(this.result);
