@@ -29,7 +29,9 @@ var DeleteHandler = /** @class */ (function (_super) {
     DeleteHandler.prototype.query = function (db) {
         var _this = this;
         var collection = db.collection('documents');
+        console.log("delete this: ", this.request.body);
         collection.deleteMany(this.request.body, function (err, result) {
+            console.log("delete result: ", result.result);
             err == null ? _this.result = result : _this.result = err;
             _this.response.send(_this.result.result);
             _this.close();

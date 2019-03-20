@@ -4,7 +4,7 @@ import { Db } from "mongodb";
 
 export class DeleteHandler extends Database {
     public result: any;
-    
+
     /**
      * create handler handles all create operation it can be extened by other classes
      */
