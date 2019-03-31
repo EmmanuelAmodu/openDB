@@ -6,9 +6,6 @@ var Router_1 = require("./Router/Router");
 var bodyParser = require("body-parser");
 var multer = require("multer");
 var ServerManager = /** @class */ (function () {
-    /**
-     *
-    */
     function ServerManager() {
         var _this = this;
         this.port = 8900;

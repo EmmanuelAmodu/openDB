@@ -11,9 +11,6 @@ export class ServerManager {
     private routes: IRoutes[] = router;
     private multerU = multer();
 
-    /**
-     *
-    */
     constructor() {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
