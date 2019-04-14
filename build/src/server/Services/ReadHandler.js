@@ -30,7 +30,6 @@ var ReadHandler = /** @class */ (function (_super) {
     }
     ReadHandler.prototype.query = function (db) {
         var _this = this;
-        console.log(this.arg);
         db.collection('documents').find(this.arg).toArray(function (err, res) {
             err == null ? _this.result = res : _this.result = err;
             _this.response.send(_this.result);

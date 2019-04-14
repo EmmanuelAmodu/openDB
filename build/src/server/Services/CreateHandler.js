@@ -29,7 +29,6 @@ var CreateHandler = /** @class */ (function (_super) {
     CreateHandler.prototype.query = function (db) {
         var _this = this;
         var collection = db.collection('documents');
-        console.log(this.request.body);
         if (this.request.body.constructor != Array)
             this.request.body = [this.request.body];
         collection.insertMany(this.request.body, function (err, result) {
