@@ -8,7 +8,7 @@ var Database = /** @class */ (function () {
     function Database() {
         this.MongoClient = mongodb.MongoClient;
         this.dburl = 'mongodb://localhost:27017';
-        this.dbName = 'myproject';
+        this.dbName = 'OperationsManagerDB';
         this.client = new this.MongoClient(this.dburl, { useNewUrlParser: true });
     }
     /**
@@ -29,3 +29,4 @@ var Database = /** @class */ (function () {
     return Database;
 }());
 exports.Database = Database;
+//# sourceMappingURL=database.js.map

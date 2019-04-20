@@ -23,17 +23,18 @@ var CreateHandler = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.request = request;
         _this.response = response;
-        _this.dbName = _this.request.params.database;
+        _this.collection = _this.request.params.collection;
         return _this;
     }
     CreateHandler.prototype.query = function (db) {
         var _this = this;
-        var collection = db.collection('documents');
+        var collection = db.collection(this.collection);
         if (this.request.body.constructor != Array)
             this.request.body = [this.request.body];
         collection.insertMany(this.request.body, function (err, result) {
             err == null ? _this.result = result : _this.result = err;
             _this.response.send(_this.result.result);
+            console.log(result);
             _this.close();
         });
     };
@@ -43,3 +44,4 @@ var CreateHandler = /** @class */ (function (_super) {
     return CreateHandler;
 }(database_1.Database));
 exports.CreateHandler = CreateHandler;
+//# sourceMappingURL=CreateHandler.js.map

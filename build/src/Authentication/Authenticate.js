@@ -21,3 +21,4 @@ var Authenticator = /** @class */ (function () {
     return Authenticator;
 }());
 exports.Authenticator = Authenticator;
+//# sourceMappingURL=Authenticate.js.map

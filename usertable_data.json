@@ -1,0 +1,16 @@
+[
+    {
+        "_id": "EAmodu",
+        "username": "EAmodu",
+        "email": "emmanuel.amodu@outlook.com",
+        "password": "emmanuel",
+        "roles": [
+            "StationManager",
+            "DepotManager"
+        ],
+        "name": "Emmanue Amodu",
+        "entity": [
+            "KetuStation"
+        ]
+    }
+]

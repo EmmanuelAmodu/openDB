@@ -24,15 +24,17 @@ var ReadHandler = /** @class */ (function (_super) {
         _this.request = request;
         _this.response = response;
         _this.arg = {};
-        _this.dbName = _this.request.params.database;
+        _this.collection = _this.request.params.collection;
         _this.arg = _this.request.body;
         return _this;
     }
     ReadHandler.prototype.query = function (db) {
         var _this = this;
-        db.collection('documents').find(this.arg).toArray(function (err, res) {
+        var collection = db.collection(this.collection);
+        collection.find(this.arg).toArray(function (err, res) {
             err == null ? _this.result = res : _this.result = err;
             _this.response.send(_this.result);
+            console.log(_this.result, _this.arg);
             _this.close();
         });
     };
@@ -42,3 +44,4 @@ var ReadHandler = /** @class */ (function (_super) {
     return ReadHandler;
 }(database_1.Database));
 exports.ReadHandler = ReadHandler;
+//# sourceMappingURL=ReadHandler.js.map

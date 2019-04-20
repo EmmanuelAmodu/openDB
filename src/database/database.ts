@@ -3,7 +3,7 @@ import * as mongodb from 'mongodb';
 export class Database  {
     private MongoClient = mongodb.MongoClient;
     private dburl: string = 'mongodb://localhost:27017';
-    public dbName: string = 'myproject';
+    public dbName: string = 'OperationsManagerDB';
     public client = new this.MongoClient(this.dburl, { useNewUrlParser: true });
 
     /**

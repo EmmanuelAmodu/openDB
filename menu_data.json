@@ -1,0 +1,41 @@
+[
+    {
+        "_id": "dashboard",
+        "path": "",
+        "title": "Dashboard",
+        "type": "link",
+        "icontype": "nc-icon nc-bank",
+        "permitTo": [
+            "StationManager",
+            "DepotManager"
+        ]
+    },
+    {
+        "_id": "product_request",
+        "path": "request",
+        "title": "Product Request",
+        "type": "link",
+        "icontype": "nc-icon nc-layout-11",
+        "permitTo": [
+            "StationManager",
+            "DepotManager"
+        ]
+    },
+    {
+        "_id": "pending_approval",
+        "path": "approval",
+        "title": "Pending Approval",
+        "type": "sub",
+        "icontype": "nc-icon nc-bullet-list-67",
+        "permitTo": [
+            "DepotManager"
+        ],
+        "children": [
+            {
+                "path": "supply_request",
+                "ab": "PA",
+                "title": "Products Approval"
+            }
+        ]
+    }
+]

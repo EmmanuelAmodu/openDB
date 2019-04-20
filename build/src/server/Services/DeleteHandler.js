@@ -23,12 +23,12 @@ var DeleteHandler = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.request = request;
         _this.response = response;
-        _this.dbName = _this.request.params.database;
+        _this.collection = _this.request.params.collection;
         return _this;
     }
     DeleteHandler.prototype.query = function (db) {
         var _this = this;
-        var collection = db.collection('documents');
+        var collection = db.collection(this.collection);
         collection.deleteMany(this.request.body, function (err, result) {
             err == null ? _this.result = result : _this.result = err;
             _this.response.send(_this.result.result);
@@ -41,3 +41,4 @@ var DeleteHandler = /** @class */ (function (_super) {
     return DeleteHandler;
 }(database_1.Database));
 exports.DeleteHandler = DeleteHandler;
+//# sourceMappingURL=DeleteHandler.js.map
