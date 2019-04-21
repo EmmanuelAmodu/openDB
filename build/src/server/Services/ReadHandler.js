@@ -34,7 +34,6 @@ var ReadHandler = /** @class */ (function (_super) {
         collection.find(this.arg).toArray(function (err, res) {
             err == null ? _this.result = res : _this.result = err;
             _this.response.send(_this.result);
-            console.log(_this.result, _this.arg);
             _this.close();
         });
     };

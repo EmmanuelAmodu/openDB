@@ -1,0 +1,52 @@
+{
+    "_id": "SupplyRequestForm",
+    "data_model": "product_request",
+    "form_name": "SupplyRequestForm",
+    "form_fields": [
+        {
+            "ftype": "Dropdown",
+            "options_model": "product_options",
+            "key": "product_type",
+            "label": "Product Type",
+            "required": true,
+            "isReadOnly": false,
+            "order": {
+                "$numberInt": "1"
+            }
+        },
+        {
+            "ftype": "Textbox",
+            "key": "station_name",
+            "type": "text",
+            "label": "Station Name",
+            "required": true,
+            "isReadOnly": false,
+            "order": {
+                "$numberInt": "2"
+            }
+        },
+        {
+            "ftype": "Textbox",
+            "key": "product_quantity",
+            "type": "number",
+            "label": "Product Quantity",
+            "required": true,
+            "isReadOnly": false,
+            "order": {
+                "$numberInt": "3"
+            }
+        },
+        {
+            "ftype": "Textbox",
+            "value": "Initialized",
+            "key": "request_status",
+            "type": "text",
+            "label": "Request Status",
+            "required": true,
+            "isReadOnly": true,
+            "order": {
+                "$numberInt": "4"
+            }
+        }
+    ]
+}

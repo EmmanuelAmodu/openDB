@@ -21,7 +21,6 @@ export class ReadHandler extends Database {
         collection.find(this.arg).toArray((err, res) => {
             err == null ? this.result = res : this.result = err;
             this.response.send(this.result);
-            console.log(this.result, this.arg);
             this.close();
         });
     }

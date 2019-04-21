@@ -8,7 +8,6 @@ exports.router = [
         method: "post",
         path: "/api/read/:collection",
         handlerfunc: function (request, response) {
-            console.log(request.body);
             var getServ = new ReadHandler_1.ReadHandler(request, response);
             getServ.runQuery();
         }

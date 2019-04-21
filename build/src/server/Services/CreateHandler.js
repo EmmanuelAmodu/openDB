@@ -34,7 +34,6 @@ var CreateHandler = /** @class */ (function (_super) {
         collection.insertMany(this.request.body, function (err, result) {
             err == null ? _this.result = result : _this.result = err;
             _this.response.send(_this.result.result);
-            console.log(result);
             _this.close();
         });
     };
