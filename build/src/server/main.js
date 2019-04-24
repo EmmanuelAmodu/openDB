@@ -12,6 +12,8 @@ var ServerManager = /** @class */ (function () {
         this.express = Express();
         this.routes = Router_1.router;
         this.multerU = multer();
+        this.preInit = function () {
+        };
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
         // this.express.use("/api", this.validateUser);
@@ -34,6 +36,7 @@ var ServerManager = /** @class */ (function () {
     };
     ServerManager.prototype.start = function () {
         var _this = this;
+        this.preInit();
         this.express.listen(this.port, function () { return console.log("Open app listening on port " + _this.port + "!"); });
     };
     return ServerManager;

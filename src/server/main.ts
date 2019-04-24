@@ -35,7 +35,12 @@ export class ServerManager {
         });
     }
 
+    public preInit = () => {
+
+    }
+
     public start() {
+        this.preInit();
         this.express.listen(this.port, () => console.log(`Open app listening on port ${this.port}!`));
     }
 }

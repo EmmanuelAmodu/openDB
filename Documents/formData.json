@@ -1,4 +1,4 @@
-{
+[{
     "_id": "SupplyRequestForm",
     "data_model": "product_request",
     "form_name": "SupplyRequestForm",
@@ -10,9 +10,7 @@
             "label": "Product Type",
             "required": true,
             "isReadOnly": false,
-            "order": {
-                "$numberInt": "1"
-            }
+            "order": 1
         },
         {
             "ftype": "Textbox",
@@ -21,9 +19,7 @@
             "label": "Station Name",
             "required": true,
             "isReadOnly": false,
-            "order": {
-                "$numberInt": "2"
-            }
+            "order": 2
         },
         {
             "ftype": "Textbox",
@@ -32,9 +28,7 @@
             "label": "Product Quantity",
             "required": true,
             "isReadOnly": false,
-            "order": {
-                "$numberInt": "3"
-            }
+            "order": 3
         },
         {
             "ftype": "Textbox",
@@ -44,9 +38,7 @@
             "label": "Request Status",
             "required": true,
             "isReadOnly": true,
-            "order": {
-                "$numberInt": "4"
-            }
+            "order": 4
         }
     ]
-}
+}]
