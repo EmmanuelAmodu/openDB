@@ -6,7 +6,7 @@ var DeleteHandler_1 = require("../Services/DeleteHandler");
 exports.router = [
     {
         method: "post",
-        path: "/api/read/:collection",
+        path: "/api/read/:tableName/:collection",
         handlerfunc: function (request, response) {
             var getServ = new ReadHandler_1.ReadHandler(request, response);
             getServ.runQuery();
@@ -14,7 +14,7 @@ exports.router = [
     },
     {
         method: "post",
-        path: "/api/create/:collection",
+        path: "/api/create/:tableName/:collection",
         handlerfunc: function (request, response) {
             var getServ = new CreateHandler_1.CreateHandler(request, response);
             getServ.runQuery();
@@ -22,7 +22,7 @@ exports.router = [
     },
     {
         method: "post",
-        path: "/api/update/:collection",
+        path: "/api/update/:tableName/:collection",
         handlerfunc: function (request, response) {
             var getServ = new CreateHandler_1.CreateHandler(request, response);
             getServ.runQuery();
@@ -30,7 +30,7 @@ exports.router = [
     },
     {
         method: "post",
-        path: "/api/delete/:collection",
+        path: "/api/delete/:tableName/:collection",
         handlerfunc: function (request, response) {
             var getServ = new DeleteHandler_1.DeleteHandler(request, response);
             getServ.runQuery();

@@ -12,11 +12,19 @@ var ServerManager = /** @class */ (function () {
         this.express = Express();
         this.routes = Router_1.router;
         this.multerU = multer();
+        this.setHeaders = function (req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            res.header("Access-Control-Allow-Headers", "*");
+            next();
+        };
         this.preInit = function () {
         };
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
         // this.express.use("/api", this.validateUser);
+        this.express.use(this.setHeaders);
+        this.express.options("/*", function (req, res) { return res.sendStatus(200); });
         this.routes.forEach(function (route) {
             _this.express[route.method](route.path, _this.multerU.array(), route.handlerfunc);
         });

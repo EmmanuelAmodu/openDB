@@ -23,6 +23,7 @@ var CreateHandler = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.request = request;
         _this.response = response;
+        _this.dbName = _this.request.params.tableName;
         _this.collection = _this.request.params.collection;
         return _this;
     }

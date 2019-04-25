@@ -15,10 +15,19 @@ export class ServerManager {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: true }));
         // this.express.use("/api", this.validateUser);
+        this.express.use(this.setHeaders);
+        this.express.options("/*", (req, res) => res.sendStatus(200));
 
         this.routes.forEach(route => {
             this.express[route.method](route.path, this.multerU.array(), route.handlerfunc);
         });
+    }
+
+    private setHeaders = (req: Express.Request, res: Express.Response, next: Function) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+        res.header("Access-Control-Allow-Headers", "*");
+        next();
     }
 
     private validateUser(request: Express.Request, response: Express.Response, next) {

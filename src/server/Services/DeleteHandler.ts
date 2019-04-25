@@ -11,6 +11,7 @@ export class DeleteHandler extends Database {
      */
     constructor(private request: Express.Request, private response: Express.Response) {
         super();
+        this.dbName = this.request.params.tableName;
         this.collection = this.request.params.collection;
     }
 
